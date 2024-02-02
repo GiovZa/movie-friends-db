@@ -1,1 +1,1 @@
-# sp24-cs411-team074-GioBriyanKai
+# team074-GioBriyanKai
