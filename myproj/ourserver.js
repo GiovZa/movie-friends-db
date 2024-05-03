@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
-
+const path = require('path')
 const app = express();
 const port = 80;
 
@@ -51,6 +51,26 @@ app.post('/query', (req, res) => {
       res.send(`<h1>Error executing query:</h1><pre>${err}</pre>`);
     } else {
       res.send(`<h1>Query Result:</h1><pre>${JSON.stringify(result, null, 2)}</pre>`);
+    }
+  });
+});
+
+app.get('/kwsearch', (req, res) => {
+  res.sendFile(path.join(__dirname, 'keyword.html'));});
+
+app.post('/search', (req, res) => {
+  kw = req.body.kwsearch
+  console.log(kw)
+  const query = `SELECT * from Movies Where Title like '%${kw}%'`;
+  console.log(query)
+
+  // Execute the MySQL query
+  connection.query(query, (err, result) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(result);
+      res.send(`<h1>Search Result:</h1><pre>${JSON.stringify(result, null, 2)}</pre>`);
     }
   });
 });
