@@ -1,4 +1,9 @@
 # team074-GioBriyanKai
+to build 
+```
+cd realproject
+npm install
+```
 to run 
 ```
 cd realproject
