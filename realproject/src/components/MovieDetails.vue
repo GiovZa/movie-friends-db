@@ -4,7 +4,6 @@
     <div class="movie-cards">
       <div v-for="movie in movies" :key="movie.MovieID" class="movie-card">
         <strong>Title:</strong> {{ movie.Title }}<br>
-        <strong>GenreID (TODO, link to GenreID):</strong> {{ movie.GenreID }}<br>
         <strong>Rating:</strong> {{ movie.Rating }}<br>
         <strong>Year:</strong> {{ movie.Year }}<br>
         <router-link :to="{ name: 'movie', params: { id: movie.MovieID }}">Details</router-link>
