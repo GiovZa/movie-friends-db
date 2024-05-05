@@ -12,10 +12,11 @@ app.use(cors());
 app.use(express.json());
 
 const connection = mysql.createConnection({
-  host: '34.122.167.103',
-  user: 'kaifeng3',
-  password: '#--QIj*cO1xnVb,:',
-  database: 'testmysql'
+  host: '34.134.122.1',
+  user: 'GioZ',
+  password: 'u_.?ne;n^c#~z_Ke',
+  database: 'testmysql',
+  connectTimeout: 10000 
 });
 
 // Promisify the query method of connection
@@ -97,6 +98,16 @@ app.post('/search-movies', async (req, res) => {
   }
 });
 
+app.post('/rank-user-movies', async (req, res) => {
+  try {
+    const userId = req.body.userId;
+    const results = await query('CALL RankUserMovies(?)', [userId]);
+    res.json(results);
+  } catch (error) {
+    console.error('Error executing stored procedure:', error);
+    res.status(500).send(error.message);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
