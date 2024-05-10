@@ -35,6 +35,11 @@ const router = createRouter({
       component: () => import ('../views/Movie.vue')
     },
     {
+      path: '/user/:userid',
+      name: 'UserPage',
+      component: () => import('../views/UserPage.vue')
+    },
+    {
       path: '/login',
       name: 'LoginPage',
       component: () => import('../views/LoginPage.vue')
