@@ -75,19 +75,6 @@ app.get('/movie/:id', async (req, res) => {
   }
 });
 
-
-app.get('/user/:userid', async (req, res) => {
-  try {
-    const UserId = req.params.id;
-    // Query for movie details with a limit of 20
-    const user = await query('SELECT * FROM Users WHERE UserId = ?', [movieId]);
-    res.json(results);
-  } catch (error) {
-    console.error('Error executing query: ' + error.stack);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
 app.post('/search-movies', async (req, res) => {
   try {
     const queryParam = req.body.query;
