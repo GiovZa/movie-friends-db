@@ -36,6 +36,7 @@
     methods: {
       async fetchMovieDetails() {
         try {
+          console.log(`${this.$hostname}/movie/${this.$route.params.id}`)
           const response = await fetch(`${this.$hostname}/movie/${this.$route.params.id}`);
           const data = await response.json();
           this.movie = data.movie;
