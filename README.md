@@ -1,4 +1,7 @@
 # team074-GioBriyanKai
+
+## Database project implemented to create a social network that has friends recommend movies
+
 to build 
 ```
 cd realproject
